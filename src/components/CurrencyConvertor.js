@@ -10,6 +10,7 @@ import axios from 'axios';
 
 import GetCountries from './functions/GetCountries';
 import Form from './Form';
+import './CurrencyContainer.css';
 
 class CurrencyConverter extends Component {
 	state = {
@@ -52,10 +53,10 @@ class CurrencyConverter extends Component {
 	};
 
 	render() {
-		let value = <h5>Loading...</h5>;
+		let value = <h5 className='container'>Loading...</h5>;
 		if (!this.state.loading) {
 			value = (
-				<div>
+				<div className='card container'>
 					<h1>
 						{`${this.state.amount} ${this.state.fromCurrency} is worth ${this.state.convertAmount} ${this.state.toCurrency}. you can spend these in the following countries: ${this.state.countries}`}
 					</h1>

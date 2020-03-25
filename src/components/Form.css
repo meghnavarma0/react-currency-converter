@@ -1,0 +1,33 @@
+.form {
+	height: 30%;
+	width: 70%;
+	margin: 20px;
+}
+
+.amt,
+.btn,
+.code {
+	border: 1px solid transparent;
+	margin: 20px;
+	padding: 5px 10px;
+	color: black;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px black;
+}
+
+.btn:hover {
+	background-color: black;
+	color: whitesmoke;
+	box-shadow: none;
+}
+
+.container {
+	display: flex;
+	flex-flow: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+.item {
+	align-self: space-around;
+}

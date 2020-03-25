@@ -1,0 +1,15 @@
+.container {
+	height: 50%;
+	width: 60%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: antiquewhite;
+	box-shadow: 4px 4px 10px black;
+	border-radius: 10px;
+	margin: 20px auto;
+	padding: 20px;
+}
+.container:hover {
+	box-shadow: 2px 2px 5px rgb(70, 67, 67);
+}
