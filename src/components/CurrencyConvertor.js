@@ -11,6 +11,7 @@ import axios from 'axios';
 import GetCountries from './functions/GetCountries';
 import Form from './Form';
 import './CurrencyContainer.css';
+import img1 from './assets/img/money.jpg';
 
 class CurrencyConverter extends Component {
 	state = {
@@ -53,7 +54,12 @@ class CurrencyConverter extends Component {
 	};
 
 	render() {
-		let value = <h5 className='container'>Loading...</h5>;
+		let value = (
+			<h5 className='container'>
+				<img src={img1} alt='abc' className='image item' />
+			</h5>
+		);
+
 		if (!this.state.loading) {
 			value = (
 				<div className='card container'>

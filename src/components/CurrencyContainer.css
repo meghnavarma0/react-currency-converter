@@ -9,7 +9,12 @@
 	border-radius: 10px;
 	margin: 20px auto;
 	padding: 20px;
+	box-sizing: border-box;
 }
 .container:hover {
 	box-shadow: 2px 2px 5px rgb(70, 67, 67);
+}
+.image {
+	height: 45%;
+	width: 55%;
 }
