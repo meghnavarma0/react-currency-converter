@@ -21,7 +21,8 @@ class CurrencyConverter extends Component {
 		convertAmount: 0,
 		amount: 5,
 
-		loading: true,
+		loading: false,
+		loaded: false,
 		error: false
 	};
 	componentDidMount() {
@@ -29,6 +30,7 @@ class CurrencyConverter extends Component {
 	}
 	onSubmitHandler = async event => {
 		event.preventDefault();
+
 		let fromCurr = event.target.fromCurrency.value;
 		let toCurr = event.target.toCurrency.value;
 		let amt = event.target.amount.value;
@@ -36,6 +38,7 @@ class CurrencyConverter extends Component {
 			fromCurrency: '' + event.target.fromCurrency.value,
 			toCurrency: '' + event.target.toCurrency.value,
 			loading: true,
+			loaded: false,
 			amount: amt
 		});
 		const response = await axios.get(
@@ -50,7 +53,7 @@ class CurrencyConverter extends Component {
 
 		let convertAmount = (this.state.amount * exchangeRate).toFixed(2);
 
-		this.setState({ convertAmount, loading: false });
+		this.setState({ convertAmount, loading: false, loaded: true });
 	};
 
 	render() {
@@ -59,8 +62,20 @@ class CurrencyConverter extends Component {
 				<img src={img1} alt='abc' className='image item' />
 			</h5>
 		);
+		if (this.state.loading) {
+			value = (
+				<div className='loader'>
+					<div className='lds-roller'>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>{' '}
+					</div>
+				</div>
+			);
+		}
 
-		if (!this.state.loading) {
+		if (this.state.loaded) {
 			value = (
 				<div className='card container'>
 					<h1>
