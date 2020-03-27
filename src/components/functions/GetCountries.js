@@ -10,7 +10,7 @@ class GetCountries extends Component {
 	}
 	getCountries = async () => {
 		const response = await axios.get(
-			`https://restcountries.eu/rest/v2/currency/${this.props.toCurrency}`
+			`http://restcountries.eu/rest/v2/currency/${this.props.toCurrency}`
 		);
 
 		this.setState({
