@@ -7,16 +7,8 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	/* background-color: brown; */
 
-	/* background: url('./components/assets/img/background.jpg') no-repeat center
-		center fixed; */
-	background-image: linear-gradient(
-			to bottom,
-			rgba(0, 0, 0, 0.3),
-			rgba(0, 0, 0, 0.5)
-		),
-		url('./components/assets/img/background.jpg');
-	background-repeat: no-repeat;
-	background-position: center;
+	background: url('./components/assets/img/background.jpg') no-repeat center
+		center fixed;
 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
