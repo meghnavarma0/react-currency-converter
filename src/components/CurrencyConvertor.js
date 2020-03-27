@@ -42,7 +42,7 @@ class CurrencyConverter extends Component {
 			amount: amt
 		});
 		const response = await axios.get(
-			`http://api.currencylayer.com/live?access_key=${this.props.api}&currencies=${fromCurr},${toCurr}& format=1`
+			`https://api.currencylayer.com/live?access_key=${this.props.api}&currencies=${fromCurr},${toCurr}& format=1`
 		);
 
 		let rate = response.data.quotes;
