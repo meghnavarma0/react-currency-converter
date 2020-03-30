@@ -1,3 +1,11 @@
 /* .App {
 	text-align: center;
 } */
+header {
+	font-family: 'Righteous', cursive;
+	font-weight: 100;
+	letter-spacing: 5px;
+}
+.heading {
+	text-emphasis: none;
+}

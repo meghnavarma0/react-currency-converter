@@ -110,7 +110,7 @@ class CurrencyConverter extends Component {
 		if (this.state.error) {
 			value = (
 				<div className='container' style={{ color: 'red' }}>
-					<h1>Please Enter Valid Values</h1>
+					<h1>please enter valid currency codes!</h1>
 				</div>
 			);
 		}

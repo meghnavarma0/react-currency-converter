@@ -8,7 +8,7 @@ function App() {
 	return (
 		<div className='App'>
 			<header className='container'>
-				<h1>Currency Converter</h1>
+				<h1 className='heading'>Currency Converter</h1>
 			</header>
 			{/* <CurrencyConverter api={ACCESS_KEY} /> */}
 			<CurrencyConverter api={api} />
