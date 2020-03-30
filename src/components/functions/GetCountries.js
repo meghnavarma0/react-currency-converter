@@ -15,7 +15,11 @@ class GetCountries extends Component {
 
 		this.setState({
 			countries: response.data.map((country, index) => (
-				<div key={index}>{country.name}</div>
+				<div key={index}>
+					<h2>
+						<b>{`${index + 1} - ${country.name}`}</b>
+					</h2>
+				</div>
 			))
 		});
 	};

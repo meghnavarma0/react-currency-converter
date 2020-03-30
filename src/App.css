@@ -9,3 +9,7 @@ header {
 .heading {
 	text-emphasis: none;
 }
+body {
+	font-family: 'Righteous', cursive;
+	letter-spacing: 2px;
+}

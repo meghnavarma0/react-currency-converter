@@ -17,6 +17,7 @@ class Form extends Component {
 					className='amt item'
 					name='amount'
 					type='number'
+					step='0.01'
 					placeholder='Amount'
 					onChange={this.onChange}
 				/>

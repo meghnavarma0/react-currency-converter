@@ -101,8 +101,10 @@ class CurrencyConverter extends Component {
 			value = (
 				<div className='card container'>
 					<h1>
-						{`${this.state.amount} ${this.state.fromCurrency} is worth ${this.state.convertAmount} ${this.state.toCurrency}. you can spend these in the following countries: ${this.state.countries}`}
+						{`${this.state.amount} ${this.state.fromCurrency} is worth ${this.state.convertAmount} ${this.state.toCurrency}. 
+						`}
 					</h1>
+					<h2>You can spend these in the following countries:</h2>
 					<GetCountries toCurrency={this.state.toCurrency} />
 				</div>
 			);
