@@ -11,7 +11,8 @@ import axios from 'axios';
 import GetCountries from './functions/GetCountries';
 import Form from './Form';
 import './CurrencyContainer.css';
-import img1 from './assets/img/money.jpg';
+import img1 from './assets/img/money-min.jpg';
+import currencyCodes from './currencyCodes';
 
 class CurrencyConverter extends Component {
 	state = {
@@ -34,26 +35,47 @@ class CurrencyConverter extends Component {
 		let fromCurr = event.target.fromCurrency.value;
 		let toCurr = event.target.toCurrency.value;
 		let amt = event.target.amount.value;
-		this.setState({
-			fromCurrency: '' + event.target.fromCurrency.value,
-			toCurrency: '' + event.target.toCurrency.value,
-			loading: true,
-			loaded: false,
-			amount: amt
-		});
-		const response = await axios.get(
-			`http://api.currencylayer.com/live?access_key=${this.props.api}&currencies=${fromCurr},${toCurr}& format=1`
-		);
+		if (amt && fromCurr && toCurr) {
+			if (
+				currencyCodes.includes(fromCurr) &&
+				currencyCodes.includes(toCurr)
+			) {
+				this.setState({
+					fromCurrency: '' + event.target.fromCurrency.value,
+					toCurrency: '' + event.target.toCurrency.value,
+					loading: true,
+					loaded: false,
+					amount: amt
+				});
+				const response = await axios.get(
+					`http://data.fixer.io/api/latest?access_key=${this.props.api}&symbols=${fromCurr},${toCurr}`
+				);
 
-		let rate = response.data.quotes;
+				console.log(response);
 
-		let euro = 1 / rate['USD' + this.state.fromCurrency];
+				let rate = await response.data.rates;
 
-		let exchangeRate = euro * rate['USD' + this.state.toCurrency];
+				let euro = 1 / rate[fromCurr];
 
-		let convertAmount = (this.state.amount * exchangeRate).toFixed(2);
+				let exchangeRate = euro * rate[toCurr];
 
-		this.setState({ convertAmount, loading: false, loaded: true });
+				let convertAmount = (amt * exchangeRate).toFixed(2);
+
+				this.setState({
+					convertAmount,
+					loading: false,
+					loaded: true,
+					error: false
+				});
+			} else {
+				this.setState({ error: true });
+			}
+		} else {
+			this.setState({ error: true });
+		}
+		// const response = await axios.get(
+		// 	`http://api.currencylayer.com/live?access_key=${this.props.api}&currencies=${fromCurr},${toCurr}& format=1`
+		// );
 	};
 
 	render() {
@@ -82,6 +104,13 @@ class CurrencyConverter extends Component {
 						{`${this.state.amount} ${this.state.fromCurrency} is worth ${this.state.convertAmount} ${this.state.toCurrency}. you can spend these in the following countries: ${this.state.countries}`}
 					</h1>
 					<GetCountries toCurrency={this.state.toCurrency} />
+				</div>
+			);
+		}
+		if (this.state.error) {
+			value = (
+				<div className='container' style={{ color: 'red' }}>
+					<h1>Please Enter Valid Values</h1>
 				</div>
 			);
 		}

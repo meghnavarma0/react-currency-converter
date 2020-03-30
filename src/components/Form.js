@@ -24,14 +24,14 @@ class Form extends Component {
 					className='code item'
 					name='fromCurrency'
 					type='text'
-					placeholder='From Currency'
+					placeholder='From Currency- INR/EUR/USD'
 					onChange={this.onChange}
 				/>
 				<input
 					className='code item'
 					name='toCurrency'
 					type='text'
-					placeholder='To Currency'
+					placeholder='To Currency- INR/EUR/USD'
 					onChange={this.onChange}
 				/>
 				<button className='btn item' type='submit'>

@@ -7,8 +7,8 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	/* background-color: brown; */
 
-	background: url('./components/assets/img/background.jpg') no-repeat center
-		center fixed;
+	background: url('./components/assets/img/background-min.jpg') no-repeat
+		center center fixed;
 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
